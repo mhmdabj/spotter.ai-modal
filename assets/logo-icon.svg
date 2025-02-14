@@ -1,0 +1,12 @@
+
+  <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 944.7 623.7" xml:space="preserve" height="20">
+    <style>
+      .st2{fill:#bcddde}.st0{fill:currentColor}
+    </style>
+    <g id="dots_copy">
+      <circle class="st0" cx="150" cy="472.7" r="147.4"/>
+      <circle cx="150" cy="150.8" r="147.4" style="fill:#f84960"/>
+      <circle class="st2" cx="472.3" cy="472.7" r="147.4"/>
+      <circle class="st2" cx="794.7" cy="472.7" r="147.4"/>
+    </g>
+  </svg>
