@@ -1,63 +1,68 @@
-const ctx = document.getElementById("myChart").getContext("2d");
+var options = {
+    series: [
+      {
+        name: "Fingerprint",
+        data: [0, -0.2, -0.3, -0.4, -0.5, -0.6, -0.8, -1.0, -1.2],
+      },
+      {
+        name: "Competitors",
+        data: [0, -5, -10, -15, -20, -25, -28, -30, -35],
+      },
+    ],
+    chart: {
+      type: "line",
+      height: 350,
+      toolbar: { show: false },
+    },
+    stroke: {
+      curve: "smooth",
+      width: 2,
+    },
+    colors: ["#ff5722", "#7966ff"],
+    tooltip: {
+      shared: true,
+      y: {
+        formatter: (val) => `${val.toFixed(1)}%`,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+    xaxis: {
+      categories: [0, 10, 20, 30, 40, 50, 60, 90, 120],
+      tickAmount: 3,
+      axisBorder: {
+        show: true,
+      },
+      labels: {
+        style: {
+          colors: "#c1c1be",
+        },
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    yaxis: {
+      labels: {
+        formatter: (val) => `${val}%`,
+        show: false,
+      },
+      axisBorder: {
+        show: true,
+      },
+    },
+    grid: {
+      borderColor: "#ddd",
+      strokeDashArray: 5,
+      yaxis: {
+        lines: { show: false },
+      },
+    },
+  };
 
-          const data = {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May"],
-            datasets: [
-              {
-                label: "Dataset 1",
-                data: [10, 20, 30, 40, 50],
-                borderColor: "rgba(75, 192, 192, 1)",
-                backgroundColor: "rgba(75, 192, 192, 0.5)",
-                yAxisID: "y",
-              },
-            ],
-          };
-
-          const config = {
-            type: "line",
-            data: data,
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              interaction: {
-                mode: "index",
-                intersect: false,
-              },
-              plugins: {
-                legend: {
-                  labels: {
-                    font: {
-                      weight: "normal", // Default weight
-                    },
-                  },
-                  onHover: (event, legendItem, legend) => {
-                    legend.chart.options.plugins.legend.labels.font.weight =
-                      "bold";
-                    legend.chart.update();
-                  },
-                  onLeave: (event, legendItem, legend) => {
-                    legend.chart.options.plugins.legend.labels.font.weight =
-                      "normal";
-                    legend.chart.update();
-                  },
-                },
-              },
-              scales: {
-                y: {
-                  type: "linear",
-                  display: true,
-                  position: "left",
-                },
-                y1: {
-                  type: "linear",
-                  display: true,
-                  position: "right",
-                  grid: {
-                    drawOnChartArea: false,
-                  },
-                },
-              },
-            },
-          };
-
-          const myChart = new Chart(ctx, config);
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
